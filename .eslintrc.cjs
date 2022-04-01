@@ -1,3 +1,5 @@
+const { off } = require("process");
+
 /* eslint-env node */
 require("@rushstack/eslint-patch/modern-module-resolution");
 
@@ -12,6 +14,7 @@ module.exports = {
   env: {
     "vue/setup-compiler-macros": true,
   },
+  rules: [{ "prettier/prettier": "off" }],
   overrides: [
     {
       files: [
