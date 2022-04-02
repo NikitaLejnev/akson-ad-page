@@ -8,6 +8,14 @@ import CatalogBar from "./components/CatalogBar.vue";
     <top-bar />
     <catalog-bar />
   </header>
+  <main class="main">
+    <h1>Рекламные возможности akson.ru</h1>
+    <h2>Аудитория сайта</h2>
+    <b>173 млрд.</b>
+    <p>Общее число просмотров</p>
+    <b>999 млрд.</b>
+    <p>Средняя ежемесячная посещаемость</p>
+  </main>
 </template>
 
 <style>
