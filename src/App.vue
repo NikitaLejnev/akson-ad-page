@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import AppTopBar from "./components/AppTopBar.vue";
+import TopBar from "./components/TopBar.vue";
+import CatalogBar from "./components/CatalogBar.vue";
 </script>
 
 <template>
   <header class="header">
-    <app-top-bar />
+    <top-bar />
+    <catalog-bar />
   </header>
 </template>
 
 <style>
+#app {
+  font-family: "Open Sans", sans-serif;
+}
+
 body {
   margin: 0;
   width: 100%;
