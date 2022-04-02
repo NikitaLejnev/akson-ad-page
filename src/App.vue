@@ -24,4 +24,9 @@ body {
   position: relative;
   user-select: none;
 }
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
 </style>

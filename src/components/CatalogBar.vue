@@ -10,6 +10,23 @@ const items = [
   "Электротовары",
   "Скобяные изделия",
   "Керамическая плитка",
+  "Краски",
+  "Инструменты для ремонта и строительства",
+  "Сантехника",
+  "Отделка стен и потолков",
+  "Обои",
+  "Напольные покрытия",
+  "Двери и окна",
+  "Системы",
+  "Освещение",
+  "Мебель",
+  "Декор для интерьера",
+  "Бытовая техника",
+  "Автотовары",
+  "Товары для отдыха и хобби",
+  "Товары для дома",
+  "Товары для сада",
+  "Умный дом",
 ];
 const state = ref({ open: false });
 
@@ -35,7 +52,16 @@ const openMenu = () => {
           {{ item }}
         </li>
       </ul>
-      <div v-else class=".catalog-bar__elements-bar"></div>
+      <ul v-else class="catalog-bar__elements-bar">
+        <li
+          v-for="item in items"
+          class="catalog-bar__element"
+        >
+          <a href="#" class="catalog-bar__element-link">{{
+            item
+          }}</a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -55,6 +81,7 @@ const openMenu = () => {
   display: block;
   background-color: #ffffff;
   color: rgb(27, 27, 27);
+  margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   font-weight: bold;
@@ -70,5 +97,17 @@ const openMenu = () => {
   margin: 0.5rem 0rem;
   padding: 0.5rem;
   line-height: 1.5rem;
+}
+
+.catalog-bar__elements-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 1200px;
+}
+
+.catalog-bar__element {
+  margin-right: 0.3rem;
+  font-size: 1rem;
 }
 </style>
