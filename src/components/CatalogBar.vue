@@ -53,7 +53,7 @@ const openMenu = () => {
         class="catalog-bar__categories-menu"
       >
         <li v-for="item in items">
-          {{ item }}
+          {{ item.name }}
         </li>
       </ul>
       <ul v-else class="catalog-bar__elements-bar">
