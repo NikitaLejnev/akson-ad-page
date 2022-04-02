@@ -1,34 +1,38 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 const items = [
-  "Готовые решения",
-  "Строительные материалы",
-  "Пиломатериалы",
-  "Водоснабжение и отопление",
-  "Вентиляция",
-  "Электротовары",
-  "Скобяные изделия",
-  "Керамическая плитка",
-  "Краски",
-  "Инструменты для ремонта и строительства",
-  "Сантехника",
-  "Отделка стен и потолков",
-  "Обои",
-  "Напольные покрытия",
-  "Двери и окна",
-  "Системы",
-  "Освещение",
-  "Мебель",
-  "Декор для интерьера",
-  "Бытовая техника",
-  "Автотовары",
-  "Товары для отдыха и хобби",
-  "Товары для дома",
-  "Товары для сада",
-  "Умный дом",
+  { name: "Готовые решения", elementDisplay: true },
+  { name: "Строительные материалы", elementDisplay: true },
+  { name: "Пиломатериалы" },
+  { name: "Водоснабжение и отопление" },
+  { name: "Вентиляция" },
+  { name: "Электротовары" },
+  { name: "Скобяные изделия" },
+  { name: "Керамическая плитка", elementDisplay: true },
+  { name: "Краски", elementDisplay: true },
+  { name: "Инструменты для ремонта и строительства" },
+  { name: "Сантехника", elementDisplay: true },
+  { name: "Отделка стен и потолков" },
+  { name: "Обои" },
+  { name: "Напольные покрытия", elementDisplay: true },
+  { name: "Двери и окна" },
+  { name: "Системы" },
+  { name: "Освещение" },
+  { name: "Мебель" },
+  { name: "Декор для интерьера" },
+  { name: "Бытовая техника" },
+  { name: "Автотовары" },
+  { name: "Товары для отдыха и хобби" },
+  { name: "Товары для дома", elementDisplay: true },
+  { name: "Товары для сада" },
+  { name: "Умный дом" },
 ];
 const state = ref({ open: false });
+
+const elements = computed(() =>
+  items.filter((element) => element.elementDisplay)
+);
 
 const openMenu = () => {
   state.value.open = !state.value.open;
@@ -54,11 +58,11 @@ const openMenu = () => {
       </ul>
       <ul v-else class="catalog-bar__elements-bar">
         <li
-          v-for="item in items"
+          v-for="element in elements"
           class="catalog-bar__element"
         >
           <a href="#" class="catalog-bar__element-link">{{
-            item
+            element.name
           }}</a>
         </li>
       </ul>
@@ -102,12 +106,11 @@ const openMenu = () => {
 .catalog-bar__elements-bar {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   position: relative;
-  max-width: 1200px;
 }
 
 .catalog-bar__element {
-  margin-right: 0.3rem;
   font-size: 1rem;
 }
 </style>
