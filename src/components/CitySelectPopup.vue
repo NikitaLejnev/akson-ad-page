@@ -46,4 +46,8 @@ const selectedCity = store.getSelectedCity() || {
   cursor: pointer;
   margin-right: 1rem;
 }
+
+.popup__city:hover {
+  color: #f00;
+}
 </style>
