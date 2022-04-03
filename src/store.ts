@@ -109,16 +109,16 @@ const store = reactive({
     return this.cities.find((city) => city.selected);
   },
 
-  selectCity(code: number) {
-    this.deselectAllCities();
-    const selectedCity = this.cities.find(
-      (city) => city.code === code
-    );
-    if (selectedCity) selectedCity.selected = true;
+  selectCity(id: string) {
+    const previouslySelectedCity = this.getSelectedCity();
+    if (previouslySelectedCity)
+      previouslySelectedCity.selected = false;
+    const cityToSelect = this.findCityById(id);
+    if (cityToSelect) cityToSelect.selected = true;
   },
 
-  deselectAllCities() {
-    this.cities.map((city) => (city.selected = false));
+  findCityById(id: string) {
+    return this.cities.find((city) => city.id === id);
   },
 });
 

@@ -1,19 +1,21 @@
 <script setup lang="ts">
 import store from "../store";
+import { selectedCityName } from "../utils";
 import CitySelectListItem from "./CitySelectListItem.vue";
 
 const cities = store.getCities();
-const selectedCity = store.getSelectedCity() || {
-  name: "Кострома",
-};
 </script>
 
 <template>
   <div class="popup">
     <b class="popup__heading"
-      >Ваш город {{ selectedCity.name }}</b
+      >Ваш город {{ selectedCityName }}</b
     >
-    <ul class="popup__city-list" v-for="city of cities">
+    <ul
+      class="popup__city-list"
+      v-for="city of cities"
+      :key="city.id"
+    >
       <city-select-list-item :cityObj="city" />
     </ul>
   </div>

@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import store from "../store";
+import { selectedCityName } from "@/utils";
 import CitySelectPopup from "./CitySelectPopup.vue";
 
 const state = ref({
   citySelectOpened: false,
 });
-const selectedCity = store.getSelectedCity() || {
-  name: "Кострома",
-};
+const selectedCity = store.getSelectedCity();
 const openSelectCity = () => {
   state.value.citySelectOpened =
     !state.value.citySelectOpened;
@@ -40,7 +39,7 @@ const openSelectCity = () => {
               </svg>
             </i>
             <span class="top-bar__city-select-text">{{
-              selectedCity.name
+              selectedCityName
             }}</span>
           </div>
           <CitySelectPopup v-if="state.citySelectOpened" />

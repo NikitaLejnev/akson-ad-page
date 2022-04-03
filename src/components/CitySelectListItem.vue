@@ -1,12 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
-
-interface City {
-  id: string;
-  code: number;
-  name: string;
-  selected: boolean;
-}
+import store from "../store";
+import type { City } from "../types";
 
 interface Props {
   cityObj: City;
@@ -14,13 +9,21 @@ interface Props {
 
 const props = defineProps<Props>();
 
+const selectCity = () => {
+  store.selectCity(props.cityObj.id);
+};
+
 const isCitySelected = computed(() =>
   props.cityObj.selected ? " popup__city--selected" : ""
 );
 </script>
 
 <template>
-  <li class="popup__city" :class="isCitySelected">
+  <li
+    class="popup__city"
+    :class="isCitySelected"
+    @click="selectCity"
+  >
     {{ props.cityObj.name }}
   </li>
 </template>
