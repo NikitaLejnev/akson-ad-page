@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const props = defineProps(["selectedCity"]);
 const cities = [
   "Москва",
   "Владимир",
@@ -21,7 +22,9 @@ const cities = [
 
 <template>
   <div class="popup">
-    <b class="popup__heading">Ваш город Кострома</b>
+    <b class="popup__heading"
+      >Ваш город {{ props.selectedCity }}</b
+    >
     <ul class="popup__city-list" v-for="city of cities">
       <li class="popup__city">{{ city }}</li>
     </ul>

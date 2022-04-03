@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import CitySelectPopup from "./CitySelectPopup.vue";
+
+const props = defineProps(["selectedCity"]);
+
 const state = ref({
   citySelectOpened: false,
 });
@@ -35,11 +38,14 @@ const toggleCitySelect = () => {
                 ></path>
               </svg>
             </i>
-            <span class="top-bar__city-select-text"
-              >Кострома</span
-            >
+            <span class="top-bar__city-select-text">{{
+              props.selectedCity
+            }}</span>
           </div>
-          <CitySelectPopup v-if="state.citySelectOpened" />
+          <CitySelectPopup
+            v-if="state.citySelectOpened"
+            :selectedCity="props.selectedCity"
+          />
         </div>
       </div>
     </div>

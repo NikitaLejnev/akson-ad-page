@@ -1,12 +1,17 @@
 <script setup lang="ts">
+import { reactive } from "vue";
 import TopBar from "./components/TopBar.vue";
 import CatalogBar from "./components/CatalogBar.vue";
 import StatisticsDisplay from "./components/StatisticsDisplay.vue";
+
+const state = reactive({
+  selectedCity: "Кострома",
+});
 </script>
 
 <template>
   <header class="header">
-    <top-bar />
+    <top-bar :selectedCity="state.selectedCity" />
     <catalog-bar />
   </header>
   <main class="main">
