@@ -1,39 +1,9 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import CatalogBarCategoriesMenu from "./CatalogBarCategoriesMenu.vue";
+import CatalogBarElementsBar from "./CatalogBarElementsBar.vue";
 
-const items = [
-  { name: "Готовые решения", elementDisplay: true },
-  { name: "Строительные материалы", elementDisplay: true },
-  { name: "Пиломатериалы" },
-  { name: "Водоснабжение и отопление" },
-  { name: "Вентиляция" },
-  { name: "Электротовары" },
-  { name: "Скобяные изделия" },
-  { name: "Керамическая плитка", elementDisplay: true },
-  { name: "Краски", elementDisplay: true },
-  { name: "Инструменты для ремонта и строительства" },
-  { name: "Сантехника", elementDisplay: true },
-  { name: "Отделка стен и потолков" },
-  { name: "Обои" },
-  { name: "Напольные покрытия", elementDisplay: true },
-  { name: "Двери и окна" },
-  { name: "Системы" },
-  { name: "Освещение" },
-  { name: "Мебель" },
-  { name: "Декор для интерьера" },
-  { name: "Бытовая техника" },
-  { name: "Автотовары" },
-  { name: "Товары для отдыха и хобби" },
-  { name: "Товары для дома", elementDisplay: true },
-  { name: "Товары для сада" },
-  { name: "Умный дом" },
-];
 const state = ref({ open: false });
-
-const elements = computed(() =>
-  items.filter((element) => element.elementDisplay)
-);
 
 const openMenu = () => {
   state.value.open = !state.value.open;
@@ -50,16 +20,7 @@ const openMenu = () => {
         Каталог
       </button>
       <catalog-bar-categories-menu v-if="state.open" />
-      <ul v-else class="catalog-bar__elements-bar">
-        <li
-          v-for="element in elements"
-          class="catalog-bar__element"
-        >
-          <a href="#" class="catalog-bar__element-link">{{
-            element.name
-          }}</a>
-        </li>
-      </ul>
+      <catalog-bar-elements-bar v-else />
     </div>
   </div>
 </template>
@@ -86,16 +47,5 @@ const openMenu = () => {
   border: 1px solid #b6b6b6;
   border-radius: 0.25rem;
   cursor: pointer;
-}
-
-.catalog-bar__elements-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  position: relative;
-}
-
-.catalog-bar__element {
-  font-size: 1rem;
 }
 </style>
