@@ -1,32 +1,18 @@
 <script setup lang="ts">
-const props = defineProps(["selectedCity"]);
-const cities = [
-  "Москва",
-  "Владимир",
-  "Вологда",
-  "Дзержинск",
-  "Иваново",
-  "Калуга Болдина",
-  "Калуга Московская",
-  "Кинешма",
-  "Кострома",
-  "Нижний Новгород",
-  "Рыбинск",
-  "Смоленск",
-  "Тамбов",
-  "Череповец",
-  "Ярославль Громова",
-  "Ярославль Фрунзе",
-];
+import store from "../store";
+const cities = store.getCities();
+const selectedCity = store.getSelectedCity() || {
+  name: "Кострома",
+};
 </script>
 
 <template>
   <div class="popup">
     <b class="popup__heading"
-      >Ваш город {{ props.selectedCity }}</b
+      >Ваш город {{ selectedCity.name }}</b
     >
     <ul class="popup__city-list" v-for="city of cities">
-      <li class="popup__city">{{ city }}</li>
+      <li class="popup__city">{{ city.name }}</li>
     </ul>
   </div>
 </template>
