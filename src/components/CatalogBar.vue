@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import CatalogBarCategoriesMenu from "./CatalogBarCategoriesMenu.vue";
 
 const items = [
   { name: "Готовые решения", elementDisplay: true },
@@ -48,14 +49,7 @@ const openMenu = () => {
       >
         Каталог
       </button>
-      <ul
-        v-if="state.open"
-        class="catalog-bar__categories-menu"
-      >
-        <li v-for="item in items">
-          {{ item.name }}
-        </li>
-      </ul>
+      <catalog-bar-categories-menu v-if="state.open" />
       <ul v-else class="catalog-bar__elements-bar">
         <li
           v-for="element in elements"
@@ -92,15 +86,6 @@ const openMenu = () => {
   border: 1px solid #b6b6b6;
   border-radius: 0.25rem;
   cursor: pointer;
-}
-
-.catalog-bar__categories-menu {
-  display: inline-block;
-  border: 1px solid #b6b6b6;
-  border-radius: 0.25rem;
-  margin: 0.5rem 0rem;
-  padding: 0.5rem;
-  line-height: 1.5rem;
 }
 
 .catalog-bar__elements-bar {
