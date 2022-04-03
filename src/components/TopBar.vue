@@ -10,6 +10,7 @@ const toggleCitySelect = () => {
     !state.value.citySelectOpened;
 };
 </script>
+
 <template>
   <div class="top-bar">
     <div class="top-bar__wrapper">
