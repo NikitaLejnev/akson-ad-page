@@ -12,12 +12,14 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "uuid": "^8.3.2",
     "vue": "^3.2.31"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
     "@types/jsdom": "^16.2.14",
     "@types/node": "^16.11.25",
+    "@types/uuid": "^8.3.4",
     "@vitejs/plugin-vue": "^2.2.2",
     "@volar/pug-language-service": "^0.33.9",
     "@volar/typescript-language-service": "^0.33.9",

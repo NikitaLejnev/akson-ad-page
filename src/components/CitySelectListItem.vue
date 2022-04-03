@@ -2,6 +2,7 @@
 import { computed } from "vue";
 
 interface City {
+  id: string;
   code: number;
   name: string;
   selected: boolean;

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import store from "../store";
 import CitySelectListItem from "./CitySelectListItem.vue";
+
 const cities = store.getCities();
 const selectedCity = store.getSelectedCity() || {
   name: "Кострома",
