@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import store from "../store";
+import CitySelectListItem from "./CitySelectListItem.vue";
 const cities = store.getCities();
 const selectedCity = store.getSelectedCity() || {
   name: "Кострома",
@@ -12,7 +13,7 @@ const selectedCity = store.getSelectedCity() || {
       >Ваш город {{ selectedCity.name }}</b
     >
     <ul class="popup__city-list" v-for="city of cities">
-      <li class="popup__city">{{ city.name }}</li>
+      <city-select-list-item :cityObj="city" />
     </ul>
   </div>
 </template>
@@ -45,9 +46,5 @@ const selectedCity = store.getSelectedCity() || {
   line-height: 2rem;
   cursor: pointer;
   margin-right: 1rem;
-}
-
-.popup__city:hover {
-  color: #f00;
 }
 </style>
