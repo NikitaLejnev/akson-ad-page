@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { getSelectedCityStatistics } from "@/store";
+import type { CityStatistics } from "@/store.types";
 import { onMounted, ref, type Ref } from "vue";
 
 interface State {
@@ -15,14 +16,11 @@ const state: Ref<State> = ref({
 });
 
 const fetchPageViews: () => void = () => {
-  const { pageViews, visitsDaily } =
+  const stats: CityStatistics | undefined =
     getSelectedCityStatistics();
-  if (
-    typeof pageViews !== undefined &&
-    typeof visitsDaily !== undefined
-  ) {
-    state.value.pageViews = pageViews;
-    state.value.visitsDaily = visitsDaily;
+  if (stats && typeof stats !== "undefined") {
+    state.value.pageViews = stats.pageViews;
+    state.value.visitsDaily = stats.visitsDaily;
   }
 };
 

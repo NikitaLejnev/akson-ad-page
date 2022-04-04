@@ -1,153 +1,146 @@
-import { reactive } from "vue";
-import { v4 as uuidv4 } from "uuid";
+import { ref, type Ref } from "vue";
 import type { CityStatistics } from "./store.types";
+import type { City } from "./types";
 
-const store = reactive({
-  cities: [
-    {
-      id: uuidv4(),
-      pageViewsMillions: 17,
-      visitsDailyThousands: 962,
-      name: "Москва",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 53,
-      visitsDailyThousands: 301,
-      name: "Владимир",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 45,
-      visitsDailyThousands: 330,
-      name: "Вологда",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 14,
-      visitsDailyThousands: 872,
-      name: "Дзержинск",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 59,
-      visitsDailyThousands: 936,
-      name: "Иваново",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 24,
-      visitsDailyThousands: 32,
-      name: "Калуга Болдина",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 434,
-      visitsDailyThousands: 348,
-      name: "Калуга Московская",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 56,
-      visitsDailyThousands: 898,
-      name: "Кинешма",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 45,
-      visitsDailyThousands: 966,
-      name: "Кострома",
-      selected: true,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 1,
-      visitsDailyThousands: 6,
-      name: "Нижний Новгород",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 40,
-      visitsDailyThousands: 686,
-      name: "Рыбинск",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 47,
-      visitsDailyThousands: 330,
-      name: "Смоленск",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 62,
-      visitsDailyThousands: 787,
-      name: "Тамбов",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 68,
-      visitsDailyThousands: 628,
-      name: "Череповец",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 54,
-      visitsDailyThousands: 859,
-      name: "Ярославль Громова",
-      selected: false,
-    },
-    {
-      id: uuidv4(),
-      pageViewsMillions: 18,
-      visitsDailyThousands: 859,
-      name: "Ярославль Фрунзе",
-      selected: false,
-    },
-  ],
-});
+const selectedCityId: Ref<number> = ref(9);
 
-const selectCity = (id: string) => {
-  const previouslySelectedCity = getSelectedCity();
-  if (previouslySelectedCity)
-    previouslySelectedCity.selected = false;
-  const cityToSelect = findCityById(id);
-  if (cityToSelect) cityToSelect.selected = true;
+const cities = [
+  {
+    id: 1,
+    pageViewsMillions: 17,
+    visitsDailyThousands: 962,
+    name: "Москва",
+  },
+  {
+    id: 2,
+    pageViewsMillions: 53,
+    visitsDailyThousands: 301,
+    name: "Владимир",
+  },
+  {
+    id: 3,
+    pageViewsMillions: 45,
+    visitsDailyThousands: 330,
+    name: "Вологда",
+  },
+  {
+    id: 4,
+    pageViewsMillions: 14,
+    visitsDailyThousands: 872,
+    name: "Дзержинск",
+  },
+  {
+    id: 5,
+    pageViewsMillions: 59,
+    visitsDailyThousands: 936,
+    name: "Иваново",
+  },
+  {
+    id: 6,
+    pageViewsMillions: 24,
+    visitsDailyThousands: 32,
+    name: "Калуга Болдина",
+  },
+  {
+    id: 7,
+    pageViewsMillions: 434,
+    visitsDailyThousands: 348,
+    name: "Калуга Московская",
+  },
+  {
+    id: 8,
+    pageViewsMillions: 56,
+    visitsDailyThousands: 898,
+    name: "Кинешма",
+  },
+  {
+    id: 9,
+    pageViewsMillions: 45,
+    visitsDailyThousands: 966,
+    name: "Кострома",
+  },
+  {
+    id: 10,
+    pageViewsMillions: 1,
+    visitsDailyThousands: 6,
+    name: "Нижний Новгород",
+  },
+  {
+    id: 11,
+    pageViewsMillions: 40,
+    visitsDailyThousands: 686,
+    name: "Рыбинск",
+  },
+  {
+    id: 12,
+    pageViewsMillions: 47,
+    visitsDailyThousands: 330,
+    name: "Смоленск",
+  },
+  {
+    id: 13,
+    pageViewsMillions: 62,
+    visitsDailyThousands: 787,
+    name: "Тамбов",
+  },
+  {
+    id: 14,
+    pageViewsMillions: 68,
+    visitsDailyThousands: 628,
+    name: "Череповец",
+  },
+  {
+    id: 15,
+    pageViewsMillions: 54,
+    visitsDailyThousands: 859,
+    name: "Ярославль Громова",
+  },
+  {
+    id: 16,
+    pageViewsMillions: 18,
+    visitsDailyThousands: 859,
+    name: "Ярославль Фрунзе",
+  },
+];
+
+const selectCity: (id: number) => void = (id) => {
+  selectedCityId.value = id;
 };
 
-const getSelectedCityStatistics: () => CityStatistics =
-  () => {
-    const stats = { pageViews: 0, visitsDaily: 0 };
-    const city = getSelectedCity();
-    if (city && typeof city !== undefined) {
-      stats.pageViews = city.pageViewsMillions;
-      stats.visitsDaily = city.visitsDailyThousands;
-    }
-    return stats;
-  };
-
-const findCityById = (id: string) => {
-  return store.cities.find((city) => city.id === id);
+const isSelectedCity: (id: number) => boolean = (id) => {
+  return id === selectedCityId.value;
 };
 
-const getSelectedCity = () => {
-  return store.cities.find((city) => city.selected);
+const getSelectedCityStatistics: () =>
+  | CityStatistics
+  | undefined = () => {
+  const city = findCityById(selectedCityId.value);
+  if (city && typeof city !== undefined) {
+    return {
+      pageViews: city.pageViewsMillions,
+      visitsDaily: city.visitsDailyThousands,
+    };
+  }
+};
+
+const findCityById: (id: number) => City | undefined = (
+  id
+) => {
+  const city: City | undefined = cities.find(
+    (city) => city.id === id
+  );
+  if (city && typeof city !== undefined) return city;
+};
+
+const getSelectedCity: () => City | undefined = () => {
+  const city: City | undefined = findCityById(
+    selectedCityId.value
+  );
+  if (city && typeof city !== undefined) return city;
 };
 
 const getCities = () => {
-  return store.cities;
+  return cities;
 };
 
 const categories = [
@@ -200,6 +193,7 @@ export {
   getSelectedCity,
   getSelectedCityStatistics,
   selectCity,
+  isSelectedCity,
   getCities,
   getCategories,
   getElements,

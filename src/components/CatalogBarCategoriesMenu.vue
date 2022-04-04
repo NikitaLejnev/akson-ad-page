@@ -5,7 +5,10 @@ const categories = getCategories();
 
 <template>
   <ul class="catalog-bar__categories-menu">
-    <li v-for="category in categories">
+    <li
+      v-for="(category, index) in categories"
+      :key="index"
+    >
       {{ category }}
     </li>
   </ul>

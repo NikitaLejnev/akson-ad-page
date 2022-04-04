@@ -7,7 +7,8 @@ const elements = getElements();
 <template>
   <ul class="catalog-bar__elements-bar">
     <li
-      v-for="element in elements"
+      v-for="(element, index) in elements"
+      :key="index"
       class="catalog-bar__element"
     >
       <a href="#" class="catalog-bar__element-link">{{

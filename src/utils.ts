@@ -3,15 +3,15 @@ import {
   getSelectedCityStatistics,
   getSelectedCity,
 } from "./store";
+import type { City } from "./types";
 
 const selectedCityName = computed(() => {
-  const city = getSelectedCity();
-  if (city) return city.name;
+  const city: City | undefined = getSelectedCity();
+  return city?.name;
 });
 
 const selectedCityStatistics = computed(() => {
-  const stats = getSelectedCityStatistics();
-  if (stats) return stats;
+  return getSelectedCityStatistics();
 });
 
 export { selectedCityName, selectedCityStatistics };

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, type Ref } from "vue";
+import type { State } from "./CatalogBar.types";
 import CatalogBarCategoriesMenu from "./CatalogBarCategoriesMenu.vue";
 import CatalogBarElementsBar from "./CatalogBarElementsBar.vue";
 

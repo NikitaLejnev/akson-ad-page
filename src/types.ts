@@ -1,7 +1,6 @@
 export interface City {
-  id: string;
+  id: number;
   pageViewsMillions: number;
   visitsDailyThousands: number;
   name: string;
-  selected: boolean;
 }

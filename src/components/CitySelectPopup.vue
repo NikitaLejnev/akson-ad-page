@@ -13,7 +13,7 @@ const state: Ref<State> = ref({
 
 const fetchCityList: () => void = () => {
   const cityList: City[] = getCities();
-  if (cityList && typeof cityList !== undefined)
+  if (cityList && typeof cityList !== "undefined")
     state.value.cities = cityList;
 };
 
