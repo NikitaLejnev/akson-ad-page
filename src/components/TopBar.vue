@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import store from "../store";
 import { selectedCityName } from "@/utils";
 import CitySelectPopup from "./CitySelectPopup.vue";
 import TopBarGeoIcon from "./TopBarGeoIcon.vue";
@@ -8,7 +7,6 @@ import TopBarGeoIcon from "./TopBarGeoIcon.vue";
 const state = ref({
   citySelectOpened: false,
 });
-const selectedCity = store.getSelectedCity();
 const openSelectCity = () => {
   state.value.citySelectOpened =
     !state.value.citySelectOpened;
