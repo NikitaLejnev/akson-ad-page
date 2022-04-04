@@ -1,6 +1,11 @@
 import { reactive } from "vue";
 import { v4 as uuidv4 } from "uuid";
 
+interface CityStatistics {
+  pageViews: number;
+  visitsDaily: number;
+}
+
 const store = reactive({
   cities: [
     {
@@ -125,13 +130,14 @@ const store = reactive({
     return this.cities.find((city) => city.selected);
   },
 
-  getSelectedCityStatistics() {
+  getSelectedCityStatistics(): CityStatistics {
+    const stats = { pageViews: 0, visitsDaily: 0 };
     const city = this.getSelectedCity();
-    if (city) {
-      const { pageViewsMillions, visitsDailyThousands } =
-        city;
-      return { pageViewsMillions, visitsDailyThousands };
+    if (city && typeof city !== undefined) {
+      stats.pageViews = city.pageViewsMillions;
+      stats.visitsDaily = city.visitsDailyThousands;
     }
+    return stats;
   },
 
   selectCity(id: string) {

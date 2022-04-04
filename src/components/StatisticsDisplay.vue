@@ -1,16 +1,35 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { selectedCityStatistics } from "../utils";
-const pageViewsMillions = computed(() => {
-  if (selectedCityStatistics.value) {
-    return selectedCityStatistics.value.pageViewsMillions;
-  }
+import store from "@/store";
+import { onMounted, onUpdated, ref, type Ref } from "vue";
+
+interface State {
+  pageViews: number;
+  visitsDaily: number;
+  timer: number;
+}
+
+const state: Ref<State> = ref({
+  pageViews: 0,
+  visitsDaily: 0,
+  timer: 0,
 });
-const visitsDailyThousands = computed(() => {
-  if (selectedCityStatistics.value) {
-    return selectedCityStatistics.value
-      .visitsDailyThousands;
+
+const fetchPageViews = () => {
+  const { pageViews, visitsDaily } =
+    store.getSelectedCityStatistics();
+  if (
+    typeof pageViews !== undefined &&
+    typeof visitsDaily !== undefined
+  ) {
+    state.value.pageViews = pageViews;
+    state.value.visitsDaily = visitsDaily;
   }
+};
+
+onMounted(() => {
+  state.value.pageViews = 0;
+  state.value.visitsDaily = 0;
+  state.value.timer = setInterval(fetchPageViews, 1000);
 });
 </script>
 
@@ -22,13 +41,13 @@ const visitsDailyThousands = computed(() => {
   <div class="main__row">
     <div class="main__column--span-6">
       <b class="main__text main__text--bold"
-        >{{ pageViewsMillions }} млн</b
+        >{{ state.pageViews }} млн</b
       >
       <p class="main__text">Общее число просмотров</p>
     </div>
     <div class="main__column--span-6">
       <b class="main__text main__text--bold"
-        >{{ visitsDailyThousands }} тыс.</b
+        >{{ state.visitsDaily }} тыс.</b
       >
       <p class="main__text">
         Средняя ежемесячная посещаемость

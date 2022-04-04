@@ -17,7 +17,8 @@ const state: Ref<State> = ref({
 
 const fetchCityList = () => {
   const cityList = store.getCities();
-  if (cityList) state.value.cities = cityList;
+  if (typeof cityList !== undefined)
+    state.value.cities = cityList;
 };
 
 onMounted(() => {
