@@ -1,3 +1,19 @@
+<script setup lang="ts">
+import { computed } from "vue";
+import { selectedCityStatistics } from "../utils";
+const pageViewsMillions = computed(() => {
+  if (selectedCityStatistics.value) {
+    return selectedCityStatistics.value.pageViewsMillions;
+  }
+});
+const visitsDailyThousands = computed(() => {
+  if (selectedCityStatistics.value) {
+    return selectedCityStatistics.value
+      .visitsDailyThousands;
+  }
+});
+</script>
+
 <template>
   <h1 class="main__heading">
     Рекламные возможности akson.ru
@@ -5,11 +21,15 @@
   <h2 class="main__heading">Аудитория сайта</h2>
   <div class="main__row">
     <div class="main__column--span-6">
-      <b class="main__text main__text--bold">173 млрд.</b>
+      <b class="main__text main__text--bold"
+        >{{ pageViewsMillions }} млн</b
+      >
       <p class="main__text">Общее число просмотров</p>
     </div>
     <div class="main__column--span-6">
-      <b class="main__text main__text--bold">999 млрд.</b>
+      <b class="main__text main__text--bold"
+        >{{ visitsDailyThousands }} тыс.</b
+      >
       <p class="main__text">
         Средняя ежемесячная посещаемость
       </p>

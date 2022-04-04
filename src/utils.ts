@@ -6,4 +6,9 @@ const selectedCityName = computed(() => {
   if (city) return city.name;
 });
 
-export { selectedCityName };
+const selectedCityStatistics = computed(() => {
+  const stats = store.getSelectedCityStatistics();
+  if (stats) return stats;
+});
+
+export { selectedCityName, selectedCityStatistics };

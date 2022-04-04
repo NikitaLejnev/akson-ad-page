@@ -125,6 +125,15 @@ const store = reactive({
     return this.cities.find((city) => city.selected);
   },
 
+  getSelectedCityStatistics() {
+    const city = this.getSelectedCity();
+    if (city) {
+      const { pageViewsMillions, visitsDailyThousands } =
+        city;
+      return { pageViewsMillions, visitsDailyThousands };
+    }
+  },
+
   selectCity(id: string) {
     const previouslySelectedCity = this.getSelectedCity();
     if (previouslySelectedCity)
