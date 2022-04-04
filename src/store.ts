@@ -1,10 +1,6 @@
 import { reactive } from "vue";
 import { v4 as uuidv4 } from "uuid";
-
-interface CityStatistics {
-  pageViews: number;
-  visitsDaily: number;
-}
+import type { CityStatistics } from "./store.types";
 
 const store = reactive({
   cities: [
