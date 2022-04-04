@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import store from "@/store";
-import { onMounted, onUpdated, ref, type Ref } from "vue";
+import { onMounted, ref, type Ref } from "vue";
 
 interface State {
   pageViews: number;
