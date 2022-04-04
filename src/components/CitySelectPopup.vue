@@ -1,9 +1,28 @@
 <script setup lang="ts">
+import type { City } from "@/types";
+import { onMounted, ref, type Ref } from "vue";
 import store from "../store";
 import { selectedCityName } from "../utils";
 import CitySelectListItem from "./CitySelectListItem.vue";
 
-const cities = store.getCities();
+interface State {
+  cities: [] | City[];
+  timer: number;
+}
+
+const state: Ref<State> = ref({
+  cities: [],
+  timer: 0,
+});
+
+const fetchCityList = () => {
+  const cityList = store.getCities();
+  if (cityList) state.value.cities = cityList;
+};
+
+onMounted(() => {
+  state.value.timer = setTimeout(fetchCityList, 1000);
+});
 </script>
 
 <template>
@@ -13,7 +32,7 @@ const cities = store.getCities();
     >
     <ul
       class="popup__city-list"
-      v-for="city of cities"
+      v-for="city of state.cities"
       :key="city.id"
     >
       <city-select-list-item :cityObj="city" />
