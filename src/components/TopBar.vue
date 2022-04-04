@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, type Ref } from "vue";
 import { selectedCityName } from "@/utils";
 import CitySelectPopup from "./CitySelectPopup.vue";
 import TopBarGeoIcon from "./TopBarGeoIcon.vue";
+import type { State } from "./TopBar.types";
 
-const state = ref({
+const state: Ref<State> = ref({
   citySelectOpened: false,
 });
-const openSelectCity = () => {
+
+const openSelectCity: () => void = () => {
   state.value.citySelectOpened =
     !state.value.citySelectOpened;
 };

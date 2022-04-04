@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, type Ref } from "vue";
 import CatalogBarCategoriesMenu from "./CatalogBarCategoriesMenu.vue";
 import CatalogBarElementsBar from "./CatalogBarElementsBar.vue";
 
-const state = ref({ open: false });
+const state: Ref<State> = ref({ open: false });
 
-const openMenu = () => {
+const openMenu: () => void = () => {
   state.value.open = !state.value.open;
 };
 </script>

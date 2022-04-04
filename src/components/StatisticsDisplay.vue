@@ -14,7 +14,7 @@ const state: Ref<State> = ref({
   timer: 0,
 });
 
-const fetchPageViews = () => {
+const fetchPageViews: () => void = () => {
   const { pageViews, visitsDaily } =
     store.getSelectedCityStatistics();
   if (

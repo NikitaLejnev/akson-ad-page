@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, type ComputedRef } from "vue";
 import store from "../store";
 import type { City } from "../types";
 
@@ -7,13 +7,15 @@ interface Props {
   cityObj: City;
 }
 
-const props = defineProps<Props>();
+const props: Readonly<Props> = defineProps<Props>();
 
-const selectCity = () => {
+const selectCity: () => void = () => {
   store.selectCity(props.cityObj.id);
 };
 
-const isCitySelected = computed(() =>
+const isCitySelected: ComputedRef<
+  " popup__city--selected" | ""
+> = computed(() =>
   props.cityObj.selected ? " popup__city--selected" : ""
 );
 </script>
