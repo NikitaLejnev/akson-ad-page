@@ -35,6 +35,20 @@ const store = reactive({
     return this.categories;
   },
 
+  elements: [
+    "Готовые решения",
+    "Строительные материалы",
+    "Керамическая плитка",
+    "Краски",
+    "Сантехника",
+    "Напольные покрытия",
+    "Товары для дома",
+  ],
+
+  getElements() {
+    return this.elements;
+  },
+
   cities: [
     {
       id: uuidv4(),

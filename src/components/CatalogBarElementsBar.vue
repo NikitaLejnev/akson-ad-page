@@ -1,13 +1,7 @@
 <script setup lang="ts">
-const elements = [
-  "Готовые решения",
-  "Строительные материалы",
-  "Керамическая плитка",
-  "Краски",
-  "Сантехника",
-  "Напольные покрытия",
-  "Товары для дома",
-];
+import store from "@/store";
+
+const elements = store.getElements();
 </script>
 
 <template>
