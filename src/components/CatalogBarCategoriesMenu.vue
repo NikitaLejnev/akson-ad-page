@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import store from "@/store";
-const categories = store.getCategories();
+import { getCategories } from "@/store";
+const categories = getCategories();
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import store from "@/store";
+import { getElements } from "@/store";
 
-const elements = store.getElements();
+const elements = getElements();
 </script>
 
 <template>

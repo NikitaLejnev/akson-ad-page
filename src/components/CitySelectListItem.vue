@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, type ComputedRef } from "vue";
-import store from "../store";
+import { selectCity } from "../store";
 import type { City } from "../types";
 
 interface Props {
@@ -9,8 +9,8 @@ interface Props {
 
 const props: Readonly<Props> = defineProps<Props>();
 
-const selectCity: () => void = () => {
-  store.selectCity(props.cityObj.id);
+const onClick: () => void = () => {
+  selectCity(props.cityObj.id);
 };
 
 const isCitySelected: ComputedRef<
@@ -24,7 +24,7 @@ const isCitySelected: ComputedRef<
   <li
     class="popup__city"
     :class="isCitySelected"
-    @click="selectCity"
+    @click="onClick"
   >
     {{ props.cityObj.name }}
   </li>

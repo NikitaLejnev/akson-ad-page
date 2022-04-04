@@ -1,13 +1,16 @@
 import { computed } from "vue";
-import store from "./store";
+import {
+  getSelectedCityStatistics,
+  getSelectedCity,
+} from "./store";
 
 const selectedCityName = computed(() => {
-  const city = store.getSelectedCity();
+  const city = getSelectedCity();
   if (city) return city.name;
 });
 
 const selectedCityStatistics = computed(() => {
-  const stats = store.getSelectedCityStatistics();
+  const stats = getSelectedCityStatistics();
   if (stats) return stats;
 });
 

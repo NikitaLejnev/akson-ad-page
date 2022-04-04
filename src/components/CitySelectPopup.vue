@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { City } from "@/types";
 import { onMounted, ref, type Ref } from "vue";
-import store from "../store";
+import { getCities } from "../store";
 import { selectedCityName } from "../utils";
 import CitySelectListItem from "./CitySelectListItem.vue";
 import type { State } from "./CitySelectPopup.types";
@@ -12,8 +12,8 @@ const state: Ref<State> = ref({
 });
 
 const fetchCityList: () => void = () => {
-  const cityList: City[] = store.getCities();
-  if (typeof cityList !== undefined)
+  const cityList: City[] = getCities();
+  if (cityList && typeof cityList !== undefined)
     state.value.cities = cityList;
 };
 

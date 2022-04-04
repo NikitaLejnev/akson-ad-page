@@ -3,52 +3,6 @@ import { v4 as uuidv4 } from "uuid";
 import type { CityStatistics } from "./store.types";
 
 const store = reactive({
-  categories: [
-    "Готовые решения",
-    "Строительные материалы",
-    "Пиломатериалы",
-    "Водоснабжение и отопление",
-    "Вентиляция",
-    "Электротовары",
-    "Скобяные изделия",
-    "Керамическая плитка",
-    "Краски",
-    "Инструменты для ремонта и строительства",
-    "Сантехника",
-    "Отделка стен и потолков",
-    "Обои",
-    "Напольные покрытия",
-    "Двери и окна",
-    "Системы",
-    "Освещение",
-    "Мебель",
-    "Декор для интерьера",
-    "Бытовая техника",
-    "Автотовары",
-    "Товары для отдыха и хобби",
-    "Товары для дома",
-    "Товары для сада",
-    "Умный дом",
-  ],
-
-  getCategories() {
-    return this.categories;
-  },
-
-  elements: [
-    "Готовые решения",
-    "Строительные материалы",
-    "Керамическая плитка",
-    "Краски",
-    "Сантехника",
-    "Напольные покрытия",
-    "Товары для дома",
-  ],
-
-  getElements() {
-    return this.elements;
-  },
-
   cities: [
     {
       id: uuidv4(),
@@ -163,36 +117,90 @@ const store = reactive({
       selected: false,
     },
   ],
+});
 
-  getCities() {
-    return this.cities;
-  },
+const selectCity = (id: string) => {
+  const previouslySelectedCity = getSelectedCity();
+  if (previouslySelectedCity)
+    previouslySelectedCity.selected = false;
+  const cityToSelect = findCityById(id);
+  if (cityToSelect) cityToSelect.selected = true;
+};
 
-  getSelectedCity() {
-    return this.cities.find((city) => city.selected);
-  },
-
-  getSelectedCityStatistics(): CityStatistics {
+const getSelectedCityStatistics: () => CityStatistics =
+  () => {
     const stats = { pageViews: 0, visitsDaily: 0 };
-    const city = this.getSelectedCity();
+    const city = getSelectedCity();
     if (city && typeof city !== undefined) {
       stats.pageViews = city.pageViewsMillions;
       stats.visitsDaily = city.visitsDailyThousands;
     }
     return stats;
-  },
+  };
 
-  selectCity(id: string) {
-    const previouslySelectedCity = this.getSelectedCity();
-    if (previouslySelectedCity)
-      previouslySelectedCity.selected = false;
-    const cityToSelect = this.findCityById(id);
-    if (cityToSelect) cityToSelect.selected = true;
-  },
+const findCityById = (id: string) => {
+  return store.cities.find((city) => city.id === id);
+};
 
-  findCityById(id: string) {
-    return this.cities.find((city) => city.id === id);
-  },
-});
+const getSelectedCity = () => {
+  return store.cities.find((city) => city.selected);
+};
 
-export default store;
+const getCities = () => {
+  return store.cities;
+};
+
+const categories = [
+  "Готовые решения",
+  "Строительные материалы",
+  "Пиломатериалы",
+  "Водоснабжение и отопление",
+  "Вентиляция",
+  "Электротовары",
+  "Скобяные изделия",
+  "Керамическая плитка",
+  "Краски",
+  "Инструменты для ремонта и строительства",
+  "Сантехника",
+  "Отделка стен и потолков",
+  "Обои",
+  "Напольные покрытия",
+  "Двери и окна",
+  "Системы",
+  "Освещение",
+  "Мебель",
+  "Декор для интерьера",
+  "Бытовая техника",
+  "Автотовары",
+  "Товары для отдыха и хобби",
+  "Товары для дома",
+  "Товары для сада",
+  "Умный дом",
+];
+
+const getCategories = () => {
+  return categories;
+};
+
+const elements = [
+  "Готовые решения",
+  "Строительные материалы",
+  "Керамическая плитка",
+  "Краски",
+  "Сантехника",
+  "Напольные покрытия",
+  "Товары для дома",
+];
+
+const getElements = () => {
+  return elements;
+};
+
+export {
+  getSelectedCity,
+  getSelectedCityStatistics,
+  selectCity,
+  getCities,
+  getCategories,
+  getElements,
+};
