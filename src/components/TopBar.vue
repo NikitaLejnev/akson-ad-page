@@ -3,7 +3,7 @@ import { ref, type Ref } from "vue";
 import { selectedCityName } from "@/utils";
 import CitySelectPopup from "./CitySelectPopup.vue";
 import TopBarGeoIcon from "./TopBarGeoIcon.vue";
-import type { State } from "./TopBar.types";
+import type { Binding, El, State } from "./TopBar.types";
 
 const state: Ref<State> = ref({
   citySelectOpened: false,
@@ -13,6 +13,26 @@ const openSelectCity: () => void = () => {
   state.value.citySelectOpened =
     !state.value.citySelectOpened;
 };
+
+const vClickOutside = {
+  mounted: (el: El, binding: Binding) => {
+    el.clickOutsideEvent = (event: MouseEvent) => {
+      if (!el.contains(event.target as HTMLDivElement)) {
+        binding.value();
+      }
+    };
+    document.addEventListener(
+      "click",
+      el.clickOutsideEvent
+    );
+  },
+  unmounted: (el: El) => {
+    document.removeEventListener(
+      "click",
+      el.clickOutsideEvent
+    );
+  },
+};
 </script>
 
 <template>
@@ -21,7 +41,7 @@ const openSelectCity: () => void = () => {
       <div class="top-bar__content">
         <div class="top-bar__left">
           <div
-            @click="openSelectCity"
+            @click.stop="openSelectCity"
             class="top-bar__city-select"
           >
             <top-bar-geo-icon />
@@ -30,7 +50,9 @@ const openSelectCity: () => void = () => {
             }}</span>
           </div>
           <Transition>
-            <CitySelectPopup v-if="state.citySelectOpened"
+            <CitySelectPopup
+              v-if="state.citySelectOpened"
+              v-click-outside="openSelectCity"
           /></Transition>
         </div>
       </div>
