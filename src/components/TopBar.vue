@@ -29,7 +29,9 @@ const openSelectCity: () => void = () => {
               selectedCityName
             }}</span>
           </div>
-          <CitySelectPopup v-if="state.citySelectOpened" />
+          <Transition>
+            <CitySelectPopup v-if="state.citySelectOpened"
+          /></Transition>
         </div>
       </div>
     </div>
@@ -75,5 +77,15 @@ const openSelectCity: () => void = () => {
   font-size: 1rem;
   line-height: 1.5rem;
   color: #fff;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
