@@ -70,10 +70,6 @@ const vClickOutside = {
 }
 
 .top-bar__content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 1em;
   padding: 0.5em 0;
 }
 
@@ -91,7 +87,7 @@ const vClickOutside = {
 .top-bar__city-select-text {
   font-weight: bold;
   font-size: 1em;
-  line-height: 1.5em;
+
   color: #fff;
 }
 </style>

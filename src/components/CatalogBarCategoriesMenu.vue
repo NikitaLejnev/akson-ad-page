@@ -4,25 +4,27 @@ const categories = getCategories();
 </script>
 
 <template>
-  <ul class="catalog-bar__categories-menu">
-    <li
+  <div class="catalog-bar__categories-menu">
+    <a
+      href="#"
       class="catalog-bar__category"
       v-for="(category, index) in categories"
       :key="index"
     >
       {{ category }}
-    </li>
-  </ul>
+    </a>
+  </div>
 </template>
 
 <style>
 .catalog-bar__categories-menu {
-  display: inline-block;
-  border-radius: 0.25em;
   line-height: 1.5em;
 }
 
 .catalog-bar__category {
+  color: #000;
+  display: block;
+  text-decoration: none;
   cursor: pointer;
 }
 

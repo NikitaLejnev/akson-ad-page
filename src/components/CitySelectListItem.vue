@@ -36,7 +36,7 @@ const isSelected: ComputedRef<
 .popup__city {
   border: 1px rgba(1, 1, 1, 0.7) solid;
   padding: 0 0.5em;
-  margin-bottom: 4px;
+  margin-bottom: 0.2em;
   border-radius: 0.75em;
 }
 

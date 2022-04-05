@@ -24,8 +24,12 @@ const elements = getElements();
 
 .catalog-bar__element-link {
   color: #000;
-  display: inline-block;
-  text-align: center;
+  font-size: 1.25em;
+  text-decoration: none;
   padding: 1em 1em;
+}
+
+.catalog-bar__element-link:hover {
+  color: #f00;
 }
 </style>

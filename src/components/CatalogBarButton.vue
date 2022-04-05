@@ -17,7 +17,7 @@ const toggleMenu: () => void = () => {
 <style>
 .catalog-bar__button--categories {
   display: block;
-  background-color: #ffffff;
+  background-color: hsla(0, 0%, 100%, 0.2);
   margin-bottom: 1em;
   padding: 0.5em 1em;
   font-size: 1em;

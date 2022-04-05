@@ -19,19 +19,6 @@ import StatisticsDisplay from "./components/StatisticsDisplay.vue";
   font-family: "Open Sans", sans-serif;
 }
 
-.container {
-  margin: 0 2em;
-}
-
-.header {
-  user-select: none;
-}
-
-a {
-  text-decoration: none;
-  cursor: pointer;
-}
-
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.5s ease;

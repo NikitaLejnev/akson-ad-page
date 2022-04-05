@@ -46,7 +46,7 @@ onMounted(() => {
 <style>
 .popup__city-list {
   display: inline-flex;
-  line-height: 2em;
+  line-height: 1.5em;
   cursor: pointer;
   margin-right: 1em;
   margin-bottom: 0.1em;
