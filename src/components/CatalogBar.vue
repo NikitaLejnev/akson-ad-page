@@ -20,8 +20,10 @@ const openMenu: () => void = () => {
       >
         Каталог
       </button>
-      <catalog-bar-categories-menu v-if="state.open" />
-      <catalog-bar-elements-bar v-else />
+      <Transition>
+        <catalog-bar-categories-menu v-if="state.open" />
+        <catalog-bar-elements-bar v-else
+      /></Transition>
     </div>
   </div>
 </template>
