@@ -8,7 +8,7 @@ import CitySelectPopupBody from "./CitySelectPopupBody.vue";
     <b class="popup__heading"
       >Ваш город {{ selectedCityName }}</b
     >
-    <city-select-popup-body />
+    <Transition> <city-select-popup-body /></Transition>
   </div>
 </template>
 
