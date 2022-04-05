@@ -78,10 +78,10 @@ watch(
 
 <style>
 .main__heading {
-  font-size: 2rem;
+  font-size: 2.5em;
   display: flex;
   justify-content: center;
-  margin: 2rem auto;
+  margin: 0.5em auto;
 }
 
 .main__row {
@@ -91,19 +91,17 @@ watch(
 
 .main__column--span-6 {
   flex: 1 0 0%;
-  margin: 1rem;
+  margin: 1em;
 }
 
 .main__text {
-  color: rgba(0, 0, 0, 0.7);
   padding: 0;
   margin: 0;
 }
 
 .main__text--bold {
   display: block;
-  color: rgb(0, 0, 0);
   font-weight: bold;
-  margin: 0.5rem 0.5rem;
+  margin: 0.5em 0.5em;
 }
 </style>

@@ -9,7 +9,7 @@ import StatisticsDisplay from "./components/StatisticsDisplay.vue";
     <top-bar />
     <catalog-bar />
   </header>
-  <main class="main">
+  <main class="container">
     <statistics-display />
   </main>
 </template>
@@ -19,13 +19,11 @@ import StatisticsDisplay from "./components/StatisticsDisplay.vue";
   font-family: "Open Sans", sans-serif;
 }
 
-body {
-  margin: 0;
-  width: 100%;
+.container {
+  margin: 0 2em;
 }
 
 .header {
-  position: relative;
   user-select: none;
 }
 

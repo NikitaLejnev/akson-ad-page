@@ -29,8 +29,8 @@ import CitySelectPopupBody from "./CitySelectPopupBody.vue";
 
 .popup__heading {
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 </style>

@@ -19,9 +19,9 @@
 <style>
 .top-bar__icon--geo {
   position: relative;
-  margin-right: 1rem;
-  width: 1rem;
-  height: 1rem;
-  left: 0.5rem;
+  margin-right: 1em;
+  width: 1em;
+  height: 1em;
+  left: 0.5em;
 }
 </style>

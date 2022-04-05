@@ -5,24 +5,27 @@ const elements = getElements();
 </script>
 
 <template>
-  <ul class="catalog-bar__elements-bar">
-    <li
+  <div class="catalog-bar__elements-bar">
+    <a
       v-for="(element, index) in elements"
       :key="index"
-      class="catalog-bar__element"
+      href="#"
+      class="catalog-bar__element-link"
+      >{{ element }}</a
     >
-      <a href="#" class="catalog-bar__element-link">{{
-        element
-      }}</a>
-    </li>
-  </ul>
+  </div>
 </template>
 
 <style>
 .catalog-bar__elements-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  position: relative;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.catalog-bar__element-link {
+  color: #000;
+  display: inline-block;
+  text-align: center;
+  padding: 1em 1em;
 }
 </style>

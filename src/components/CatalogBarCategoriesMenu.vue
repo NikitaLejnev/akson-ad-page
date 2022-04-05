@@ -6,6 +6,7 @@ const categories = getCategories();
 <template>
   <ul class="catalog-bar__categories-menu">
     <li
+      class="catalog-bar__category"
       v-for="(category, index) in categories"
       :key="index"
     >
@@ -17,10 +18,15 @@ const categories = getCategories();
 <style>
 .catalog-bar__categories-menu {
   display: inline-block;
-  border: 1px solid #b6b6b6;
-  border-radius: 0.25rem;
-  margin: 0.5rem 0rem;
-  padding: 0.5rem;
-  line-height: 1.5rem;
+  border-radius: 0.25em;
+  line-height: 1.5em;
+}
+
+.catalog-bar__category {
+  cursor: pointer;
+}
+
+.catalog-bar__category:hover {
+  color: #f00;
 }
 </style>

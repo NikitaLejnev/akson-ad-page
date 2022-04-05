@@ -14,24 +14,18 @@ const handleToggleMenu = () => {
 
 <template>
   <div class="catalog-bar">
-    <div class="catalog-bar__wrapper">
-      <catalog-bar-button @toggle-menu="handleToggleMenu" />
-      <Transition>
-        <catalog-bar-categories-menu v-if="state.open" />
-        <catalog-bar-elements-bar v-else
-      /></Transition>
-    </div>
+    <catalog-bar-button @toggle-menu="handleToggleMenu" />
+    <Transition>
+      <catalog-bar-categories-menu v-if="state.open" />
+    </Transition>
+    <Transition>
+      <catalog-bar-elements-bar v-if="!state.open"
+    /></Transition>
   </div>
 </template>
 
 <style>
 .catalog-bar {
-  margin-top: 1rem;
-  margin-left: 1rem;
-}
-
-.catalog-bar__wrapper {
-  margin: 0 auto;
-  width: 1200px;
+  padding: 0 1em;
 }
 </style>

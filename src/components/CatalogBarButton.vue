@@ -18,13 +18,12 @@ const toggleMenu: () => void = () => {
 .catalog-bar__button--categories {
   display: block;
   background-color: #ffffff;
-  color: rgb(27, 27, 27);
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  margin-bottom: 1em;
+  padding: 0.5em 1em;
+  font-size: 1em;
   font-weight: bold;
   border: 1px solid #b6b6b6;
-  border-radius: 0.25rem;
+  border-radius: 0.25em;
   cursor: pointer;
 }
 </style>

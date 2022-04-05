@@ -37,24 +37,22 @@ const vClickOutside = {
 
 <template>
   <div class="top-bar">
-    <div class="top-bar__wrapper">
-      <div class="top-bar__content">
-        <div class="top-bar__left">
-          <div
-            @click.stop="openSelectCity"
-            class="top-bar__city-select"
-          >
-            <top-bar-geo-icon />
-            <span class="top-bar__city-select-text">{{
-              selectedCityName
-            }}</span>
-          </div>
-          <Transition>
-            <CitySelectPopup
-              v-if="state.citySelectOpened"
-              v-click-outside="openSelectCity"
-          /></Transition>
+    <div class="top-bar__content">
+      <div class="top-bar__left">
+        <div
+          @click.stop="openSelectCity"
+          class="top-bar__city-select"
+        >
+          <top-bar-geo-icon />
+          <span class="top-bar__city-select-text">{{
+            selectedCityName
+          }}</span>
         </div>
+        <Transition>
+          <CitySelectPopup
+            v-if="state.citySelectOpened"
+            v-click-outside="openSelectCity"
+        /></Transition>
       </div>
     </div>
   </div>
@@ -68,19 +66,15 @@ const vClickOutside = {
     #9f1c6e 62.5%,
     #ff0803 100%
   );
-}
-
-.top-bar__wrapper {
-  margin: 0 auto;
-  width: 1200px;
+  margin-bottom: 1em;
 }
 
 .top-bar__content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 1rem;
-  padding: 0.5rem;
+  height: 1em;
+  padding: 0.5em 0;
 }
 
 .top-bar__left {
@@ -96,8 +90,8 @@ const vClickOutside = {
 
 .top-bar__city-select-text {
   font-weight: bold;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1em;
+  line-height: 1.5em;
   color: #fff;
 }
 </style>
