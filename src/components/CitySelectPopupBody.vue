@@ -50,5 +50,6 @@ onMounted(() => {
   line-height: 2rem;
   cursor: pointer;
   margin-right: 1rem;
+  margin-bottom: 0.1em;
 }
 </style>

@@ -8,7 +8,7 @@ import CitySelectPopupBody from "./CitySelectPopupBody.vue";
     <b class="popup__heading"
       >Ваш город {{ selectedCityName }}</b
     >
-    <Transition> <city-select-popup-body /></Transition>
+    <Transition><city-select-popup-body /></Transition>
   </div>
 </template>
 
@@ -19,8 +19,8 @@ import CitySelectPopupBody from "./CitySelectPopupBody.vue";
   left: 0;
   display: block;
   width: 640px;
-  padding: 32px 24px;
-  border-radius: 0 0 8px 8px;
+  padding: 2em 1.5em;
+  border-radius: 1em;
   box-sizing: border-box;
   box-shadow: 0 6px 9px rgba(0, 0, 0, 0.25);
   background-color: #fff;
@@ -31,6 +31,6 @@ import CitySelectPopupBody from "./CitySelectPopupBody.vue";
   display: block;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 </style>
