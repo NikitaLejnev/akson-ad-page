@@ -19,7 +19,7 @@ import CitySelectPopupBody from "./CitySelectPopupBody.vue";
   left: 0;
   display: block;
   width: 640px;
-  padding: 2em 1.5em;
+  padding: 1.5em 1.5em;
   border-radius: 1em;
   box-sizing: border-box;
   box-shadow: 0 6px 9px rgba(0, 0, 0, 0.25);

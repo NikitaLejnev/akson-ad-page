@@ -3,10 +3,11 @@ import { ref, type Ref } from "vue";
 import type { State } from "./CatalogBar.types";
 import CatalogBarCategoriesMenu from "./CatalogBarCategoriesMenu.vue";
 import CatalogBarElementsBar from "./CatalogBarElementsBar.vue";
+import CatalogBarButton from "./CatalogBarButton.vue";
 
 const state: Ref<State> = ref({ open: false });
 
-const openMenu: () => void = () => {
+const handleToggleMenu = () => {
   state.value.open = !state.value.open;
 };
 </script>
@@ -14,12 +15,7 @@ const openMenu: () => void = () => {
 <template>
   <div class="catalog-bar">
     <div class="catalog-bar__wrapper">
-      <button
-        class="catalog-bar__button--categories"
-        @click="openMenu"
-      >
-        Каталог
-      </button>
+      <catalog-bar-button @toggle-menu="handleToggleMenu" />
       <Transition>
         <catalog-bar-categories-menu v-if="state.open" />
         <catalog-bar-elements-bar v-else
@@ -37,18 +33,5 @@ const openMenu: () => void = () => {
 .catalog-bar__wrapper {
   margin: 0 auto;
   width: 1200px;
-}
-
-.catalog-bar__button--categories {
-  display: block;
-  background-color: #ffffff;
-  color: rgb(27, 27, 27);
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border: 1px solid #b6b6b6;
-  border-radius: 0.25rem;
-  cursor: pointer;
 }
 </style>
