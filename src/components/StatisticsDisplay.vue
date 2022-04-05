@@ -1,13 +1,25 @@
 <script setup lang="ts">
-import { getSelectedCityStatistics } from "@/store";
+import {
+  getSelectedCity,
+  getSelectedCityStatistics,
+} from "@/store";
+import {
+  computed,
+  onMounted,
+  ref,
+  watch,
+  type ComputedRef,
+  type Ref,
+} from "vue";
+import { timeoutDelay } from "@/utils";
 import type { CityStatistics } from "@/store.types";
-import { onMounted, ref, type Ref } from "vue";
+import type { City } from "@/types";
+import type { State } from "./StatisticsDisplay.types";
 
-interface State {
-  pageViews: number;
-  visitsDaily: number;
-  timer: number;
-}
+const selectedCity: ComputedRef<City | undefined> =
+  computed(() => {
+    return getSelectedCity();
+  });
 
 const state: Ref<State> = ref({
   pageViews: 0,
@@ -25,10 +37,20 @@ const fetchPageViews: () => void = () => {
 };
 
 onMounted(() => {
-  state.value.pageViews = 0;
-  state.value.visitsDaily = 0;
-  state.value.timer = setInterval(fetchPageViews, 1000);
+  state.value.timer = setTimeout(
+    fetchPageViews,
+    timeoutDelay
+  );
 });
+
+watch(
+  selectedCity,
+  () =>
+    (state.value.timer = setTimeout(
+      fetchPageViews,
+      timeoutDelay
+    ))
+);
 </script>
 
 <template>

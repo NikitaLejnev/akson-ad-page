@@ -14,4 +14,10 @@ const selectedCityStatistics = computed(() => {
   return getSelectedCityStatistics();
 });
 
-export { selectedCityName, selectedCityStatistics };
+const timeoutDelay = 500;
+
+export {
+  selectedCityName,
+  selectedCityStatistics,
+  timeoutDelay,
+};

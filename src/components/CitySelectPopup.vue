@@ -2,7 +2,7 @@
 import type { City } from "@/types";
 import { onMounted, ref, type Ref } from "vue";
 import { getCities } from "../store";
-import { selectedCityName } from "../utils";
+import { selectedCityName, timeoutDelay } from "../utils";
 import CitySelectListItem from "./CitySelectListItem.vue";
 import type { State } from "./CitySelectPopup.types";
 
@@ -18,7 +18,10 @@ const fetchCityList: () => void = () => {
 };
 
 onMounted(() => {
-  state.value.timer = setTimeout(fetchCityList, 100);
+  state.value.timer = setTimeout(
+    fetchCityList,
+    timeoutDelay
+  );
 });
 </script>
 
